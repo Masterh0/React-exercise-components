@@ -1,9 +1,12 @@
 import { BiChevronRightSquare,BiCross,BiDna  } from "react-icons/bi";
 import Button from "./Button";
 function App(){
-    return <div> 
+    const handleSubmit=()=>{
+        console.log("click!!!!")
+    };
+    return <div > 
         <div>
-            <Button primary outline>
+            <Button primary outline onClick={handleSubmit}>
                 <BiChevronRightSquare/>
                 click me!</Button>
         </div>
