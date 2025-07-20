@@ -24,7 +24,7 @@ function App(){
             <Button warning>awrfgsfg</Button>
         </div>
         <div>
-            <Button success>awergdvbrth</Button>
+            <Button success className={"mt-12"}>awergdvbrth</Button>
         </div>
         </div>
 }
