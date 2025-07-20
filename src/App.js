@@ -1,14 +1,21 @@
+import { BiChevronRightSquare,BiCross,BiDna  } from "react-icons/bi";
 import Button from "./Button";
 function App(){
     return <div> 
         <div>
-            <Button primary>click me!</Button>
+            <Button primary outline>
+                <BiChevronRightSquare/>
+                click me!</Button>
         </div>
         <div>
-            <Button danger > No!!!!</Button>
+            <Button danger >
+                <BiCross/>
+                 No!!!!</Button>
         </div>
         <div>
-            <Button secondary>asd</Button>
+            <Button secondary>
+                <BiDna />
+                asd</Button>
         </div>
         <div>
             <Button warning>awrfgsfg</Button>
