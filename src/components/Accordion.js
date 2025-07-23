@@ -4,18 +4,18 @@ function Accordion({items}){
     const [expendedIndex , setExpendedIndex] = useState(5)
     const renderedAccordion= items.map((item , index)=>{
         const isExpended = index === expendedIndex
-        const icon = <span>
+        const icon = <span className="text-3xl">
             {isExpended ? <FaAngleDown/> : <FaAngleLeft />}
         </span>
         return <div key={item.id}>
-            <div onClick={()=>setExpendedIndex(index)} className="m-2 cursor-pointer">
+            <div onClick={()=>setExpendedIndex(index)} className="cursor-pointer flex items-center justify-between p-3 bg-gray-50 border-b ">
                 {item.lable}
                 {icon}
                 </div>
-            {isExpended && <div>{item.content}</div>}
+            {isExpended && <div className="border-b p-5">{item.content}</div>}
         </div>
     })
-    return <div>
+    return <div className="border-x border-t rounded">
         {renderedAccordion}
     </div>
 }
