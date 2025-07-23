@@ -4,7 +4,7 @@ function Accordion({items}){
     const renderedAccordion= items.map((item , index)=>{
         const isExpended = index === expendedIndex
         return <div key={item.id}>
-            <div className="m-2">{item.lable}</div>
+            <div onClick={()=>setExpendedIndex(index)} className="m-2">{item.lable}</div>
             {isExpended && <div>{item.content}</div>}
         </div>
     })
