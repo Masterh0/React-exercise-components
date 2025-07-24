@@ -3,12 +3,12 @@ import { FaAngleDown ,FaAngleLeft  } from "react-icons/fa";
 function Accordion({items}){
     const [expendedIndex , setExpendedIndex] = useState(-1)
     const handleSubmit=(nextIndex)=>{
-        if (expendedIndex===nextIndex){
-            setExpendedIndex(-1);
-        }
-        else{
-            setExpendedIndex(nextIndex);
-        }
+        setExpendedIndex((currentExpendedIndex)=>{
+            if (currentExpendedIndex === nextIndex){
+                return -1;
+            }
+            else{ return nextIndex }
+        })
     }
     const renderedAccordion= items.map((item , index)=>{
         const isExpended = index === expendedIndex
