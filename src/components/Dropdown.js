@@ -1,12 +1,12 @@
 import { useState } from "react"
-function Dropdown({options ,onSelect ,selection}){
+function Dropdown({options ,onChange ,value}){
     const [isOpen , setIsOpen] = useState(false)
     const handleSubmit=()=>{
         setIsOpen(!isOpen)
     }
     const handleOptionClick = (option)=>{
         setIsOpen(false);
-        onSelect(option)
+        onChange(option)
     }
     const renderedOptions = options.map((option)=>{
         return <div onClick={()=> handleOptionClick(option)} key={option.value}>
@@ -14,7 +14,7 @@ function Dropdown({options ,onSelect ,selection}){
         </div>
     })
     
-    return <div onClick={handleSubmit}>{selection?.label || "select ..."}
+    return <div onClick={handleSubmit}>{value?.label || "select ..."}
         {isOpen && <div>{renderedOptions}</div>}
     </div>
 }   

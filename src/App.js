@@ -10,7 +10,7 @@ function App(){
         {label:"Blue" ,value:"blue"},
         {label:"Green" ,value:"green"},
     ]
-    return <Dropdown options={options} selection={selection} onSelect={handleSelect}/>
+    return <Dropdown options={options} value={selection} onChange={handleSelect}/>
 }
 
 export default App;
