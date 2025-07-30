@@ -17,10 +17,10 @@ function Dropdown({options ,onChange ,value}){
     })
     
     return <div className="w-48 relative" onClick={handleSubmit}>
-        <div className="flex justify-between items-center cursor-pointer border rounded p-3 shadow bg-white w-full">
+        <div className="flex justify-between items-center cursor-pointer ">
         {value?.label || "select ..."}
         <GoChevronDown className="text-lg" />
-        {isOpen && <div className="absolute top-full border rounded p-3 shadow bg-white w-full">{renderedOptions}</div>}
+        {isOpen && <div className="absolute top-full ">{renderedOptions}</div>}
         </div>
         
     </div>
