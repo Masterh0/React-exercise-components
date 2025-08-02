@@ -1,7 +1,7 @@
-import
+import Link from "./components/Link";
 function App(){
     
-    return <div>App</div>
+    return <Link to="/accordion"> go to accordion </Link>
 }
 
 export default App;
