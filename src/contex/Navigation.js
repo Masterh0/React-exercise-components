@@ -5,7 +5,7 @@ function NavigationProvider ({children}){
     const [path , setPath] = useState(window.location.pathname);
     useEffect(()=>{
        const handler = ()=>{
-        setPath(window.location.pathname)
+        setPath(window.location.current)
         };
         document.addEventListener("popstate", handler);
         return()=>{
