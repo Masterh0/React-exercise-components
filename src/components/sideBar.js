@@ -2,9 +2,10 @@ import Link from "./Link";
 
 function Sidebar() {
   const linkes = [
-    { lable: "accordion", path: "/" },
-    { lable: "button", path: "/button" },
-    { lable: "drop down", path: "/dropdown" },
+    { lable: "Accordion", path: "/" },
+    { lable: "Button", path: "/button" },
+    { lable: "Drop down", path: "/dropdown" },
+    { lable: "Modal", path: "/modal" },
   ];
   const renderedLink = linkes.map((link) => {
     return (
@@ -13,6 +14,6 @@ function Sidebar() {
       </Link>
     );
   });
-  return <div className="sticky top-0  flex flex-col">{renderedLink}</div>;
+  return <div className="sticky top-0 left-0  flex flex-col items-start">{renderedLink}</div>;
 }
 export default Sidebar;
