@@ -1,26 +1,25 @@
-function Table({ data , config}) {
-  const renderedHeaderCul = config.map((th)=>{
-    return(<th className="p-3">{th.label}</th>)
-  });
-  const rendereFruit = data.map((fruit) => {
+function Table({ data, config }) {
+  const renderedHeaderCol = config.map((th) => {
     return (
-      <tr className="border-b" key={fruit.name}>
-        <td className="p-3">{fruit.name}</td>
-        <td className="p-3">
-          <div className={`m-2 p-3 ${fruit.color}`}></div>
-        </td>
-        <td className="p-3">{fruit.score}</td>
-      </tr>
+      <th key={th.label} className="p-3">
+        {th.label}
+      </th>
     );
   });
+  const renderedFruit = data.map((fruit) => {
+   const renderedCell = config.map((column)=>{
+    return <td className="p-3">{column.render(fruit)}</td>
+    })
+    return <tr className="border-b" key={fruit.name}>
+      {renderedCell}
+    </tr>;
+  });
   return (
-    <table className="table-auto border-spacing-2" >
+    <table className="table-auto border-spacing-2">
       <thead>
-        <tr className="border-b-2">
-          {renderedHeaderCul}
-        </tr>
+        <tr className="border-b-2">{renderedHeaderCol}</tr>
       </thead>
-      <tbody>{rendereFruit}</tbody>
+      <tbody>{renderedFruit}</tbody>
     </table>
   );
 }
