@@ -1,20 +1,23 @@
 function Table({ data }) {
   const rendereFruit = data.map((fruit) => {
+    
     return (
-      <tr key={fruit.name}>
-        <td>{fruit.name}</td>
-        <td>{fruit.color}</td>
-        <td>{fruit.score}</td>
+      <tr className="border-b" key={fruit.name}>
+        <td className="p-3">{fruit.name}</td>
+        <td className="p-3">
+          <div className={`m-2 p-3 ${fruit.color}`}></div>
+        </td>
+        <td className="p-3">{fruit.score}</td>
       </tr>
     );
   });
   return (
-    <table>
+    <table className="table-auto border-spacing-2" >
       <thead>
-        <tr>
-          <th>fruits</th>
-          <th>color</th>
-          <th>score</th>
+        <tr className="border-b-2">
+          <th className="p-3">fruits</th>
+          <th className="p-3">color</th>
+          <th className="p-3">score</th>
         </tr>
       </thead>
       <tbody>{rendereFruit}</tbody>
