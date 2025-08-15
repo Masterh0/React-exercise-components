@@ -6,6 +6,6 @@ const data = [
   { name: "grape", color: "bg-purpule-500", score: 4 },
 ];
 function TablePage() {
-  return <Table date={data}/>;
+  return <Table data={data}/>;
 }
 export default TablePage;
