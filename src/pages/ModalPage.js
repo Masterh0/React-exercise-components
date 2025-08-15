@@ -5,10 +5,10 @@ import Button from "../components/Button";
 function ModalPage(){
     const [showModal , setShowModal] = useState(false);
     const handleClick= ()=>{
-        setShowModal(!showModal);
+        setShowModal(true);
     }
     const handleClose =()=>{
-        setShowModal(!showModal)
+        setShowModal(false)
     }
     const actionBar = <Button primary onClick={handleClose}> click me</Button>
     const modal = <Modal onClose={handleClose} actionBar={actionBar}>
