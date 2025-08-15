@@ -5,7 +5,8 @@ const data = [
   { name: "orange", color: "bg-orange-500", score: 2 },
   { name: "grape", color: "bg-purple-500", score: 4 },
 ];
+const config = [{ label: "fruite"}, {label: "color"}, {label: "score" }];
 function TablePage() {
-  return <Table data={data}/>;
+  return <Table data={data} config={config} />;
 }
 export default TablePage;
