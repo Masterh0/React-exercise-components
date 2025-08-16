@@ -1,5 +1,10 @@
+import { Fragment } from "react/jsx-runtime";
+
 function Table({ data, config ,keyFn }) {
   const renderedHeaderCol = config.map((th) => {
+    if(th.header){
+      return <Fragment key={th.label}>{th.header()}</Fragment>
+    }
     return (
       <th key={th.label} className="p-3">
         {th.label}

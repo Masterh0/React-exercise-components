@@ -11,7 +11,9 @@ const config = [
     label: "color",
     render: (fruit) => <div className={`m-2 p-3 ${fruit.color}`}></div>,
   },
-  { label: "score", render: (fruit) => fruit.score },
+  { label: "score", render: (fruit) => fruit.score ,
+    header: ()=> <th className="bg-red-400">score</th>
+  },
 ];
 const keyFn = (fruit)=>{
   return fruit.name;
