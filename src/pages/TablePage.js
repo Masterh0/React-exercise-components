@@ -13,7 +13,10 @@ const config = [
   },
   { label: "score", render: (fruit) => fruit.score },
 ];
+const keyFn = (fruit)=>{
+  return fruit.name;
+};
 function TablePage() {
-  return <Table data={data} config={config} />;
+  return <Table data={data} config={config} keyFn={keyFn} />;
 }
 export default TablePage;
