@@ -1,12 +1,15 @@
 import { useState } from "react";
 import Table from "./Table";
-
+import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
 function SortableTable(props) {
   const [sortOrder, setSortOrder] = useState(null);
   const [sortBy, setsortBy] = useState(null);
   const { config, data } = props;
   const handleClick = (label) => {
     if (sortOrder === null) {
+      setSortOrder("asc");
+      setsortBy(label);
+    } else if (sortBy && label !== sortBy) {
       setSortOrder("asc");
       setsortBy(label);
     } else if (sortOrder === "asc") {
@@ -24,12 +27,32 @@ function SortableTable(props) {
     return {
       ...column,
       header: () => (
-        <th onClick={() => handleClick(column.label)}>
-          {column.label} is sortable
+        <th
+          className="cursor-pointer"
+          onClick={() => handleClick(column.label)}
+        >
+          <div className="flex items-center">
+            {getIcon(column.label, sortBy, sortOrder)}
+            {column.label}
+          </div>
         </th>
       ),
     };
   });
+  const getIcon = (label, sortBy, sortOrder) => {
+    if (label !== sortBy) {
+      return (
+        <div className=" text-gray-300">
+          <AiFillCaretUp />
+          <AiFillCaretDown />
+        </div>
+      );
+    } else if (sortOrder === "asc") {
+      return <AiFillCaretUp className="inline text-gray-300" />;
+    } else {
+      return <AiFillCaretDown className="inline text-gray-300" />;
+    }
+  };
   let sortedData = data;
   if (sortBy && sortOrder) {
     const { sortValue } = config.find((column) => column.label === sortBy);
@@ -39,14 +62,13 @@ function SortableTable(props) {
       const setReverse = sortOrder === "desc" ? -1 : 1;
       if (typeof valueA === "string") {
         return valueA.localeCompare(valueB) * setReverse;
-      } 
-      return (valueA - valueB ) * setReverse
+      }
+      return (valueA - valueB) * setReverse;
     });
   }
   return (
     <div>
-      {sortOrder} - {sortBy}
-      <Table {...props} data={sortedData} config={updateConfig}  />
+      <Table {...props} data={sortedData} config={updateConfig} />
     </div>
   );
 }
